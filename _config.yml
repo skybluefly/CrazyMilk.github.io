@@ -5,7 +5,7 @@
 # Site
 title: skybluefly's blog
 subtitle: 菜鸟小前端
-description: 不断前进中~
+description: 菜鸟小前端不断前进中~
 author: skybluefly
 email: 271688304@qq.com
 language: zh-Hans
@@ -91,4 +91,10 @@ deploy:
   branch: master
 
 
-# duoshuo_shortname: skybluefly.duoshuo.com
+duoshuo_shortname: skybluefly
+duoshuo_share: true
+baidu_analytics: 051bbaf516e23338fbd3167aa207f2e1
+
+search:
+  path: search.xml
+  field: post
