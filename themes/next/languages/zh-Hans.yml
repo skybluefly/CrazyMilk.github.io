@@ -13,6 +13,7 @@ menu:
   about: 关于
   search: 搜索
   commonweal: 公益404
+  guestbook: 留言
 
 
 sidebar:
@@ -23,7 +24,7 @@ post:
   sticky: 置顶
   posted: 发表于
   in: 分类于
-  visitors: 阅读次数
+  visitors: 热度
   read_more: 阅读全文
   untitled: 未命名
   toc_empty: 此文章未包含目录
