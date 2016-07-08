@@ -13,7 +13,7 @@ keywords: skybluefly
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://github.com/skybluefly
+url: http://codeliker.com/
 root: /
 permalink: :year/:month/:day/:title/
 
@@ -98,3 +98,9 @@ baidu_analytics: 051bbaf516e23338fbd3167aa207f2e1
 search:
   path: search.xml
   field: post
+
+# 网站地图
+# sitemap:
+# path: sitemap.xml
+baidusitemap:
+path: baidusitemap.xml
