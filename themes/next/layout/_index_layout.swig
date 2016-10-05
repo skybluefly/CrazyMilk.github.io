@@ -31,9 +31,6 @@
       <div class="main-inner">
         <div class="content-wrap">
           <div id="content" class="content">
-          <style>
-          .post-type-normal{height: 330px;overflow: hidden;margin-bottom: 123px;}
-          </style>
             {% block content %}{% endblock %}
           </div>
           {% include '_partials/duoshuo-hot-articles.swig' %}
@@ -45,7 +42,7 @@
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer id="footer" class="footer" style="padding-bottom:62px">
       <div class="footer-inner">
         {% include '_partials/footer.swig' %}
         {% include '_scripts/third-party/analytics/busuanzi-counter.swig' %}
@@ -74,16 +71,6 @@
   {% include '_scripts/third-party/mathjax.swig' %}
   {% include '_scripts/third-party/lean-analytics.swig' %}
   {% include '_scripts/baidu-push.swig' %}
+
 </body>
-<script>
-$(document).ready(function(){
-$('.post-body').each(function(){
-var maxwidth=250;
-if($(this).text().length>maxwidth){
-$(this).text($(this).text().substring(0,maxwidth));
-$(this).html($(this).html()+'…');
-}
-});
-});
-</script>
 </html>

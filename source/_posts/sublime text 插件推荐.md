@@ -179,7 +179,7 @@ SideBarEnhancements增强侧边栏的插件，这里将教大家如何用来做s
 上面的视频已经有详细的安装过程，这里就不多说了。
 
 ### SublimeTmpl
-![此处输入图片的描述][16]
+<img data-src="http://img.blog.csdn.net/20150113205153750?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjQxMTcwNjE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></img>
 简介：新建文件可选类型的模版插件
 
 
@@ -199,4 +199,4 @@ SideBarEnhancements增强侧边栏的插件，这里将教大家如何用来做s
   [13]: http://img.blog.csdn.net/20150113204148515?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjQxMTcwNjE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center
   [14]: http://img.blog.csdn.net/20150113204448727?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjQxMTcwNjE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center
   [15]: http://img.blog.csdn.net/20150113205018390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjQxMTcwNjE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center
-  [16]: http://img.blog.csdn.net/20150113205153750?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjQxMTcwNjE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center
+

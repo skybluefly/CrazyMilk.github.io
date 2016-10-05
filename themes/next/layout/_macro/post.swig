@@ -111,10 +111,9 @@
                </span>
                <span class="post-meta-item-text">{{__('post.visitors')}} </span>
                <span class="leancloud-visitors-count"></span>
-               <span>°C</span>
+               <span>&deg;C</span>
               </span>
           {% endif %}
-
           {% if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.page_pv %}
               &nbsp; | &nbsp;
               <span class="page-pv">{{ theme.busuanzi_count.page_pv_header }}
@@ -128,7 +127,7 @@
 
     <div class="post-body" itemprop="articleBody">
 
-      {# Gallery support #}
+
       {% if post.photos and post.photos.length %}
         <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
           {% set COLUMN_NUMBER = 3 %}
@@ -137,7 +136,7 @@
               <a class="post-gallery-img fancybox"
                  href="{{ url_for(photo) }}" rel="gallery_{{ post._id }}"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="{{ url_for(photo) }}" itemprop="contentUrl"/>
+                <img src="" itemprop="contentUrl" />
               </a>
             {% if loop.index0 % COLUMN_NUMBER === 2 %}</div>{% endif %}
           {% endfor %}

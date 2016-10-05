@@ -20,6 +20,13 @@
     NexT.{{ theme.scheme }}
   </a>
 </div>
+<div class="theme-info">
+
+  <a class="theme-link" href="http://codeliker.com/sitemap.html">
+    网站地图
+  </a>
+</div>
 <span id="busuanzi_container_site_uv">
   本站访客数<span id="busuanzi_value_site_uv"></span>人次
 </span>
+
