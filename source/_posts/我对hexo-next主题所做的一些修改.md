@@ -18,8 +18,8 @@ updated: 2016-07-05 17:29:19
 ![](http://o8oseymkx.bkt.clouddn.com/images/hexo-issue/2016-07-09-1.png)
 4、添加了留言页面
 ![](http://o8oseymkx.bkt.clouddn.com/images/hexo-issue/2016-07-09-3.png)
-5、添加了[404页面](http://codeliker.com/404.html "404页面")和[网站地图页面](http://codeliker.com/sitemap.html "网站地图")
-6、添加了音乐播放器，手机端无法播放
-![](http://o8oseymkx.bkt.clouddn.com/images/hexo-issue/2016-07-28-9.png)
+5、添加了页面上的一些小效果
+![](http://o8oseymkx.bkt.clouddn.com/2016-12-22-1.png)
+未完续待~~~~~~~~~~~
 ------
 

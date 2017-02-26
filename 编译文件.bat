@@ -1,0 +1,3 @@
+@Echo on
+hexo g
+
