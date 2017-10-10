@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+    var pixelRatio = 1 / window.devicePixelRatio;
+    document.write('<meta name="viewport" content="width=device-width,initial-scale=' + pixelRatio + ',minimum-scale=' + pixelRatio + ',maximum-scale=' + pixelRatio + ',user-scalable=no" />');
+    var html = document.getElementsByTagName('html')[0];
+
+    var pageWidth = html.getBoundingClientRect().width;
+    html.style.fontSize = pageWidth / 7.5 + "px";
+    </script>
+    <style>
+    body {
+        margin: 0;
+        font-size: .24rem;
+    }
+
+    div {
+        width: 3rem;
+        line-height: .3rem;
+        margin: 10px auto;
+        position: relative;
+        text-align: center;
+    }
+
+    .demo2 {
+        border-bottom: 1px solid #000;
+    }
+
+    .demo4 {
+        border-left: 1px solid #000;
+    }
+
+    .demo6 {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="demo2">未设置底部1px线框</div>
+    <div class="demo4">未设置左侧1px线框</div>
+    <div class="demo6">未设置四条边框线</div>
+</body>
+
+</html>

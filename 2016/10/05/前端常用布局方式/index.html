@@ -1,0 +1,982 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="baidu-site-verification" content="nC71Jh7RP8" />
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端,布局,css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原本想着一周写一篇博文，看来自己一直是都是一个语言上的巨人，行动上的矮子~距离上一篇博文快过去一个月了。。。  这次来说说前端的布局，布局不难，难于可扩展性和效率上。下面整理常用需要用到的布局：垂直居中、垂直居中、两端对齐、同高布局、同宽布局。。。以后会更新更多方式
+
+下面为了简化代码，出现line-height:height；都是这个div要设置高，行高=高的意思；另外文字和图片只研究垂直居">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端常用布局方式">
+<meta property="og:url" content="http://codeliker.com/2016/10/05/前端常用布局方式/index.html">
+<meta property="og:site_name" content="skybluefly's blog">
+<meta property="og:description" content="原本想着一周写一篇博文，看来自己一直是都是一个语言上的巨人，行动上的矮子~距离上一篇博文快过去一个月了。。。  这次来说说前端的布局，布局不难，难于可扩展性和效率上。下面整理常用需要用到的布局：垂直居中、垂直居中、两端对齐、同高布局、同宽布局。。。以后会更新更多方式
+
+下面为了简化代码，出现line-height:height；都是这个div要设置高，行高=高的意思；另外文字和图片只研究垂直居">
+<meta property="og:image" content="http://o8oseymkx.bkt.clouddn.com/images/hexo-issue/20160930-1.png">
+<meta property="og:image" content="http://o8oseymkx.bkt.clouddn.com/images/hexo-issue/20160930-4.png">
+<meta property="og:image" content="http://images.cnitblog.com/blog/278431/201308/29224628-58a335b469c447019c99e9f880372db2.jpg">
+<meta property="og:image" content="http://o8oseymkx.bkt.clouddn.com/images/hexo-issue/2016-11-30-1.png">
+<meta property="og:updated_time" content="2016-11-30T02:23:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端常用布局方式">
+<meta name="twitter:description" content="原本想着一周写一篇博文，看来自己一直是都是一个语言上的巨人，行动上的矮子~距离上一篇博文快过去一个月了。。。  这次来说说前端的布局，布局不难，难于可扩展性和效率上。下面整理常用需要用到的布局：垂直居中、垂直居中、两端对齐、同高布局、同宽布局。。。以后会更新更多方式
+
+下面为了简化代码，出现line-height:height；都是这个div要设置高，行高=高的意思；另外文字和图片只研究垂直居">
+<meta name="twitter:image" content="http://o8oseymkx.bkt.clouddn.com/images/hexo-issue/20160930-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 13814426,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://codeliker.com/2016/10/05/前端常用布局方式/"/>
+
+
+  <title> 前端常用布局方式 | skybluefly's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?051bbaf516e23338fbd3167aa207f2e1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">skybluefly's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">菜鸟小前端</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-envelope"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端常用布局方式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-05T14:23:14+08:00" content="2016-10-05">
+              2016-10-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/05/前端常用布局方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/05/前端常用布局方式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+          
+             <span id="/2016/10/05/前端常用布局方式/" class="leancloud_visitors" data-flag-title="前端常用布局方式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa  fa-signal "></i>
+               </span>
+               <span class="post-meta-item-text">热度 </span>
+               <span class="leancloud-visitors-count"></span>
+               <span>&deg;C</span>
+              </span>
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+
+      
+
+      
+        <p>  原本想着一周写一篇博文，看来自己一直是都是一个语言上的巨人，行动上的矮子~距离上一篇博文快过去一个月了。。。<br>  这次来说说前端的布局，布局不难，难于可扩展性和效率上。下面整理常用需要用到的布局：垂直居中、垂直居中、两端对齐、同高布局、同宽布局。。。以后会更新更多方式</p>
+<blockquote>
+<p>下面为了简化代码，出现line-height:height；都是这个div要设置高，行高=高的意思；另外文字和图片只研究垂直居中，水平居中仅需要加上text-align：center即可。</p>
+</blockquote>
+<hr>
+<h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><p>首先说的是垂直居中，不和水平居中一起讨论，因为自身设为inline-block属性，父级text-align:center;就能实现居中。水平居中难度不大。<br><img src="http://o8oseymkx.bkt.clouddn.com/images/hexo-issue/20160930-1.png" alt="此处输入图片的描述"><br>简单画了个判断流程图，很多人觉得为啥还要兼容ie6+，根据<a href="http://tongji.baidu.com/data/browser" target="_blank" rel="external">百度最新统计</a>，ie6 7 特么还占了6%，ie8更是高达16.41%。总之我公司目前依然会考虑ie6 7 的兼容性-.-。下面列了九种方法，有两种是图片居中，初学者一般人都会着:就没一种方法通杀吗？我认为没有，实际布局会出现各种情况的。</p>
+<hr>
+<p>大概说明此流程图：每种方法都有它使用条件，不能乱用。img是具有inline-block属性，但也有它自身特殊的属性，所以要把图片独立一项。流程图从左到右是兼容性越来越高，也就是ie6能用的方法，后面也可以用。移动端就不在分固定高、不固定高、图片，因为参考ie8+的就行，其实移动端还有一种display:flex;只是代码有点多，觉得没必要了~至于ie8+的图片为何要分不固定高，图片本身是有固定高的，但是如果多张不一样的高，也就列入了不固定高的范围<br><img src="http://o8oseymkx.bkt.clouddn.com/images/hexo-issue/20160930-4.png" alt="此处输入图片的描述"></p>
+<hr>
+<p>具体demo地址：<a href="http://codeliker.com/test/test1.html">点我</a><br>方法一:（兼容ie8+）<br>    父级{ display: table;height:100%}<br>    子级{display: table-cell;vertical-align: middle;}</p>
+<p>方法二：（兼容ie8+）<br>    父级{line-height:height;}<br>    子级{display: inline-block;vertical-align:middle;line-height: 正常值;}</p>
+<p>方法三：插入一个空标签（兼容ie6+）<br>    父级{height}(必须要设置高)<br>    居中元素{vertical-align: middle; display: inline-block; <em>display: inline; </em>zoom: 1;width}（这个方法要注意，最好设置宽度，文字一行占满整个div时，不能居中）<br>    空标签{height: 100%; vertical-align: middle; width: 0; display: inline-block;}</p>
+<p>方法四：定位（兼容ie8+）<br>    父级{position:relative;}<br>    子级{postion:absolute;top:0;bottom:0;margin:auto;height}(必须要设置高)</p>
+<p>方法五：定位（兼容ie6+）<br>    父级{ position:relative;}<br>    子级{ position:absolute; top:50%; margin-left:-height/2;height }(必须要设置高)</p>
+<p>方法六：定位（兼容ie6+）<br>    父级{display: table; position:relative;}<br>    子级{display: table-cell; vertical-align:middle; <em>position:absolute; </em>top:50%; <em>left:50%; width:100%; text-align:center;}<br>    居中元素{position:relative; </em>top:-50%; *left:-50%;}</p>
+<p>方法七：定位<br>    父级{position:relative;}<br>    子级{postion:absolute;top:50%;-webkit-transform: translate(0, -50%);transform: translate(0, -50%);}</p>
+<p>方法八：图片居中（兼容ie6+）<br>    button{ width:100%; height:100%; border:0; background:none;}（只需要在img包一个button便签）</p>
+<p>方法九：图片居中（兼容ie8+）<br>    父级{line-height:height;}<br>    图片{vertical-align:middle;}（其实跟方法二差不多一样）</p>
+<hr>
+<blockquote>
+<p>总结：这些方法死记硬背没啥用，关键是要去理解。布局用的最多是不固定高的情况，固定高每次都要算出数值。而且用的最多的是定位，因为内容多的布局中，出现了浮动，上面的很多方法就没用，也就只能用定位来解决。</p>
+</blockquote>
+<hr>
+<h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><p>水平居中也没啥好说了，能把上面九种方法都改成水平垂直居中，就表示你已经理解了。<br>还有一种居中方法经常用的：margin:0 auto;<br>参考文章：</p>
+<ol>
+<li><a href="http://www.zhangxinxu.com/wordpress/2009/08/%E5%A4%A7%E5%B0%8F%E4%B8%8D%E5%9B%BA%E5%AE%9A%E7%9A%84%E5%9B%BE%E7%89%87%E3%80%81%E5%A4%9A%E8%A1%8C%E6%96%87%E5%AD%97%E7%9A%84%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" target="_blank" rel="external">大小不固定的图片、多行文字的水平垂直居中</a></li>
+<li><a href="http://caibaojian.com/css-vertical-middle.html" target="_blank" rel="external">CSS多行文字垂直居中的两种方法</a></li>
+</ol>
+<hr>
+<h2 id="两端对齐"><a href="#两端对齐" class="headerlink" title="两端对齐"></a>两端对齐</h2><p>也就是在一个一排几个div，前后两个div靠边，中间的div之间有空隙。我平时遇到这种情况的布局还蛮多的，移动端每个设置margin-right的值，div:last-child{margin-right:0}。pc端兼容性好点的在最后一个div加多margin-right:0的class。以上的方法都是过于麻烦~<br><img src="http://images.cnitblog.com/blog/278431/201308/29224628-58a335b469c447019c99e9f880372db2.jpg" alt="此处输入图片的描述"><br>div两端对齐：（兼容ie6+）<br>HTML：</p>
+<pre><code>&lt;p&gt;
+    &lt;i&gt;1&lt;/i&gt;
+    &lt;i&gt;2&lt;/i&gt;
+    &lt;i&gt;3&lt;/i&gt;
+&lt;/p&gt;
+</code></pre><p>CSS<br>p { text-align: justify; }<br>i { display: inline-block; }<br>p:after { content: “”; }<br>p:after, b { display: inline-block; width: 100%; font-size: 0; line-height: 0; *zoom: 1; }</p>
+<p>咋一看此方法代码又少兼容又好，然而却会有一个大坑，如果你将HTML写成<code>&lt;p&gt;&lt;i&gt;1&lt;/i&gt;&lt;i&gt;2&lt;/i&gt;&lt;i&gt;3&lt;/i&gt;&lt;/p&gt;</code>，又或者改为ul+li的结构，你会发现不生效了。。。所以此方法不怎么好，你几乎没法难保证你写的代码不被别人动，并不能范围使用。</p>
+<p>div两端对齐：（移动端）</p>
+<blockquote>
+<p>.demo { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }<br>.demo a { width: 20%; }</p>
+</blockquote>
+<p>此方法来自<a href="http://www.cnblogs.com/PeunZhang/p/3289493.html#text-justify-demo" target="_blank" rel="external">css实现两端对齐的3种方法</a>的第二种方法</p>
+<p>参考文章：<br><a href="http://www.9958.pw/post/css_duiqi_201405" target="_blank" rel="external">css 文本两端对齐</a><br><a href="http://www.cnblogs.com/PeunZhang/p/3289493.html#text-justify-demo" target="_blank" rel="external">css实现两端对齐的3种方法</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzI1MTA2MDcyOQ==&amp;mid=2649567067&amp;idx=1&amp;sn=8c9602c305026c55f412fe3d398cbf58" target="_blank" rel="external">别想多了，只不过是两端对齐而已</a></p>
+<hr>
+<h2 id="段落省略…"><a href="#段落省略…" class="headerlink" title="段落省略…"></a>段落省略…</h2><p>来自于大神张鑫旭的博文<br><a href="http://www.zhangxinxu.com/wordpress/2009/09/%E5%85%B3%E4%BA%8E%E6%96%87%E5%AD%97%E5%86%85%E5%AE%B9%E6%BA%A2%E5%87%BA%E7%94%A8%E7%82%B9%E7%82%B9%E7%82%B9-%E7%9C%81%E7%95%A5%E5%8F%B7%E8%A1%A8%E7%A4%BA/" target="_blank" rel="external">关于文字内容溢出用点点点(…)省略号表示</a></p>
+<hr>
+<h2 id="横穿文字的直线"><a href="#横穿文字的直线" class="headerlink" title="横穿文字的直线"></a>横穿文字的直线</h2><p><img src="http://o8oseymkx.bkt.clouddn.com/images/hexo-issue/2016-11-30-1.png" alt="此处输入图片的描述"></p>
+<p>方法一：(兼容ie6+)<br>.test1{ line-height:0; border-top :1px solid #cccccc;margin:50px 0;text-align: center;}<br>.test1 span{background: #fff;padding: 0 20px;}</p>
+<p>方法二:(兼容ie8+)<br>.test1 { position: relative; text-align: center; line-height: 22px; }<br>.test1:before { display: inline-block; width: 100%; content: ‘’; border-top: 1px solid #000; position: absolute; top: 50%; left: 0; }<br>.test1 span { display: inline-block; padding: 0 12px; background-color: #fff; position: relative; }</p>
+<p>HTML内容：</p>
+<pre><code>&lt;div class=&quot;test1&quot;&gt;&lt;span&gt;我是文字&lt;/span&gt;&lt;/div&gt;
+</code></pre><hr>
+<p>未完待续</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag">#前端</a>
+          
+            <a href="/tags/布局/" rel="tag">#布局</a>
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/09/移动端弹出层滑动，页面不滑动/" rel="next" title="移动端弹出层滑动，页面不滑动">
+                <i class="fa fa-chevron-left"></i> 移动端弹出层滑动，页面不滑动
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/01/移动端1像素边框/" rel="prev" title="移动端1像素边框">
+                移动端1像素边框 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/10/05/前端常用布局方式/"
+     data-title="前端常用布局方式"
+     data-content=""
+     data-url="http://codeliker.com/2016/10/05/前端常用布局方式/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/05/前端常用布局方式/"
+           data-title="前端常用布局方式" data-url="http://codeliker.com/2016/10/05/前端常用布局方式/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="skybluefly" />
+          <p class="site-author-name" itemprop="name">skybluefly</p>
+          <p class="site-description motion-element" itemprop="description">菜鸟小前端不断前进中~</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/skybluefly" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#垂直居中"><span class="nav-number">1.</span> <span class="nav-text">垂直居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水平居中"><span class="nav-number">2.</span> <span class="nav-text">水平居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两端对齐"><span class="nav-number">3.</span> <span class="nav-text">两端对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段落省略…"><span class="nav-number">4.</span> <span class="nav-text">段落省略…</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#横穿文字的直线"><span class="nav-number">5.</span> <span class="nav-text">横穿文字的直线</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart" style="color:#FF0066"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">skybluefly</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+<div class="theme-info">
+
+  <a class="theme-link" href="http://codeliker.com/sitemap.html">
+    网站地图
+  </a>
+</div>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/image-lazyload.js?v=1.0.0"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="/js/src/love.js"></script>
+<script type="text/javascript" src="/js/src/particle.js"></script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"skybluefly"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("JExKdIKLC7o7z7UUKooyt1V1-gzGzoHsz", "3D8IpGlOo60U2Era1vmD962G");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
