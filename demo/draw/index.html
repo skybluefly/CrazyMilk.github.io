@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="applicable-device" content="mobile">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>FORMAX 砸金蛋抽奖活动</title>
+    <title></title>
     <meta name="description" content="抽奖">
   <script>
    !(function(doc, win, size) {
@@ -216,12 +216,280 @@
         </div>
 </div>
 <!--我的奖品  END-->
-<script src="js/lib/zepto.min.js"></script>
-<script src="js/lib/swiper.min.js"></script>
-<script src="js/lib/smartScroll.js"></script>
-<script src="js/lib/NumberGrow.js"></script>
-<script src="js/main.js"></script>
+
 </body>
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.0/js/swiper.min.js"></script>
+<script>
+    $.smartScroll = function(container, selectorScrollable) {
+    // 如果没有滚动容器选择器，或者已经绑定了滚动时间，忽略
+    if (!selectorScrollable || container.data('isBindScroll')) {
+        return;
+    }
 
+    // 是否是搓浏览器
+    // 自己在这里添加判断和筛选
+    var isSBBrowser;
+
+    var data = {
+        posY: 0,
+        maxscroll: 0
+    };
+
+    // 事件处理
+    container.on({
+        touchstart: function(event) {
+            var events = event.touches[0] || event;
+
+            // 先求得是不是滚动元素或者滚动元素的子元素
+            var elTarget = $(event.target);
+
+            if (!elTarget.length) {
+                return;
+            }
+
+            var elScroll;
+
+            // 获取标记的滚动元素，自身或子元素皆可
+            if (elTarget.is(selectorScrollable)) {
+                elScroll = elTarget;
+            } else if ((elScroll = elTarget.parents(selectorScrollable)).length == 0) {
+                elScroll = null;
+            }
+
+            if (!elScroll) {
+                return;
+            }
+
+            // 当前滚动元素标记
+            data.elScroll = elScroll;
+
+            // 垂直位置标记
+            data.posY = events.pageY;
+            data.scrollY = elScroll.scrollTop();
+            // 是否可以滚动
+            data.maxscroll = elScroll[0].scrollHeight - elScroll[0].clientHeight;
+        },
+        touchmove: function() {
+            // 如果不足于滚动，则禁止触发整个窗体元素的滚动
+            if (data.maxscroll <= 0 || isSBBrowser) {
+                // 禁止滚动
+                event.preventDefault();
+            }
+            // 滚动元素
+            var elScroll = data.elScroll;
+            // 当前的滚动高度
+            var scrollTop = elScroll.scrollTop();
+
+            // 现在移动的垂直位置，用来判断是往上移动还是往下
+            var events = event.touches[0] || event;
+            // 移动距离
+            var distanceY = events.pageY - data.posY;
+
+            if (isSBBrowser) {
+                elScroll.scrollTop(data.scrollY - distanceY);
+                elScroll.trigger('scroll');
+                return;
+            }
+
+            // 上下边缘检测
+            if (distanceY > 0 && scrollTop == 0) {
+                // 往上滑，并且到头
+                // 禁止滚动的默认行为
+                event.preventDefault();
+                return;
+            }
+
+            // 下边缘检测
+            if (distanceY < 0 && (scrollTop + 1 >= data.maxscroll)) {
+                // 往下滑，并且到头
+                // 禁止滚动的默认行为
+                event.preventDefault();
+                return;
+            }
+        },
+        touchend: function() {
+            data.maxscroll = 0;
+        }
+    });
+
+    // 防止多次重复绑定
+    container.data('isBindScroll', true);
+};
+
+</script>
+<script src="js/lib/NumberGrow.js"></script>
+<script>
+    /**
+ *
+ * @authors Your Name (you@example.org)
+ * @date    2017-07-18 18:52:42
+ * @version $Id$
+ */
+$(function() {
+    var _this;
+    var main = {
+        expiringTime: null,
+        currentTime: null,
+        crushState: true,
+        crushTimes: 3,
+        setTimeLeave: "July 18,2017 23:38:59",
+        timeDiff: 0,
+        predictNum: 1059,
+        audio: null,
+        init: function() {
+            _this = this;
+            _this.predictFn();
+            $(".rule").click(function() {
+                _this.layer("#myPrize");
+            });
+            $(".layer-close").click(function() {
+                $(this).parents('.layer').removeClass('active');
+                $('html').removeClass('noscroll');
+                $(".egg-box").removeClass('disabled');
+                _this.audio.load();
+            });
+            var swiper = new Swiper('.swiper-container', {
+                direction: 'vertical',
+                onInit: function(swiper) {
+                    $('.swiper-slide-active').find('.effect').addClass('css3');
+                },
+                onSlideChangeStart: function(swiper) {
+                    $('.swiper-slide').find('.effect').removeClass('css3');
+                    $('.swiper-slide-active').find('.effect').addClass('css3');
+                }
+            });
+            $('[data-ride="numberGrow"]').each(function() {
+                new NumberGrow(this);
+            });
+            _this.timeDiffFn();
+            if (_this.timeDiff >= 0) {
+                _this.countdown();
+                $(".egg-box").click(function() {
+                    $("#tipText").html("还没到时间砸蛋哦！")
+                    _this.layer("#tip");
+                });
+            } else {
+                $("#crushTimes").html(_this.crushTimes);
+                $(".egg").click(function() {
+                    var el = $(this);
+                    var elCuizi = el.next(".sinker");
+                    _this.audio = document.getElementById('sound');
+                    if (!_this.crushState) {
+                        return;
+                    };
+                    if (!el.data("on")) {
+                        $("#tipText").html("已砸过了！亲~")
+                        _this.layer("#tip");
+                        return;
+                    } else {
+                        $(".egg-box").addClass('disabled');
+                        elCuizi.addClass('active');
+                        _this.audio.play();
+                        if (_this.crushTimes === 0) {
+                            _$("#tipText").html("还没有砸蛋机会哦~")
+                            _this.layer("#tip");
+                            return;
+
+                        } else {
+                            _this.crushTimes--;
+                        };
+                    };
+                    _this.crushState = false;
+
+                    elCuizi[0].addEventListener("webkitAnimationEnd", function() {
+                        el.addClass('active');
+                        var This = this;
+                        setTimeout(function() {
+                            This.style.display = "none";
+                            _this.layer("#prize");
+
+                            $("#crushTimes").html(_this.crushTimes);
+                        }, 1500);
+                        el.data("on", "false");
+                        _this.crushState = true;
+
+                    }, false);
+
+                });
+
+
+
+            };
+        },
+        predictFn: function() {
+            var num = 0;
+            var numTimer = null;
+            numTimer = setInterval(function() {
+                _this.predictNum++;
+                var numHtml = [];
+                numHtml.push("<p>已有</p>");
+                var numStr = _this.formatNum(_this.predictNum) + "";
+                numStr.split("").forEach(function(item) {
+                    numHtml.push("<span>" + item + "</span>");
+                });
+                numHtml.push("<p>人预言</p>");
+                $("#predict").html(numHtml.join(''));
+            }, 1000)
+        },
+        countdown: function() {
+            var timer = null;
+            timer = setInterval(function() {
+                _this.timeDiffFn();
+                if (_this.timeDiff >= 0) {
+                    var hour = (Math.floor(_this.timeDiff / 86400) * 24 + Math.floor(_this.timeDiff % 86400 / 3600)) + "";
+                    var minute = (Math.floor(_this.timeDiff % 86400 % 3600 / 60)) + "";
+                    var second = (_this.timeDiff % 60) + "";
+                    var html = [];
+                    html.push("<div>");
+                    html.push("<p>还剩</p>");
+                    _this.setTimeHtml(hour, html);
+                    html.push("<i>:</i>");
+                    _this.setTimeHtml(minute, html);
+                    html.push("<i>:</i>");
+                    _this.setTimeHtml(second, html);
+                    html.push("<p>开砸</p>");
+                    html.push("</div>");
+                    $('#time').html(html.join(''));
+                } else {
+                    clearInterval(timer);
+                }
+            }, 1000);
+        },
+        timeDiffFn: function() {
+            _this.currentTime = new Date();
+            _this.expiringTime = new Date(_this.setTimeLeave);
+            _this.timeDiff = Math.floor((_this.expiringTime - _this.currentTime) / 1000);
+        },
+        setTimeHtml: function(time, html) {
+            time.split("").forEach(function(item) {
+                if (time < 10) {
+                    html.push('<span>0</span>');
+                    html.push('<span>' + item + '</span>');
+                } else {
+                    html.push('<span>' + item + '</span>');
+                };
+
+            });
+        },
+        layer: function(obj) {
+            $(obj).addClass('active');
+            var elLayer = $(obj)
+            $.smartScroll(elLayer, ".scrollable");
+            $('html').addClass('noscroll');
+        },
+        formatNum: function(n) {
+            var b = parseInt(n).toString();
+            var len = b.length;
+            if (len <= 3) { return b; }
+            var r = len % 3;
+            return r > 0 ? b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : b.slice(r, len).match(/\d{3}/g).join(",");
+        }
+    }
+    main.init()
+
+})
+
+</script>
 </html>

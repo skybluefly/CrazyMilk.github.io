@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://codeliker.com/demo/draw/js/main.js</loc>
+    <loc>http://codeliker.com/demo/draw/index.html</loc>
     
-    <lastmod>2017-10-10T03:36:43.407Z</lastmod>
+    <lastmod>2017-10-11T02:30:55.425Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://codeliker.com/demo/draw/index.html</loc>
+    <loc>http://codeliker.com/demo/draw/js/main.js</loc>
     
-    <lastmod>2017-10-10T03:34:39.032Z</lastmod>
+    <lastmod>2017-10-10T03:36:43.407Z</lastmod>
     
   </url>
   
@@ -23,30 +23,9 @@
   </url>
   
   <url>
-    <loc>http://codeliker.com/demo/draw/js/lib/swiper.min.js</loc>
-    
-    <lastmod>2017-07-20T12:41:23.761Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://codeliker.com/demo/draw/js/lib/smartScroll.js</loc>
-    
-    <lastmod>2017-07-20T12:41:23.707Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://codeliker.com/demo/draw/js/lib/NumberGrow.js</loc>
     
     <lastmod>2017-07-20T12:41:23.705Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://codeliker.com/demo/draw/js/lib/zepto.min.js</loc>
-    
-    <lastmod>2017-07-19T15:39:57.732Z</lastmod>
     
   </url>
   
@@ -100,14 +79,14 @@
   </url>
   
   <url>
-    <loc>http://codeliker.com/tags/index.html</loc>
+    <loc>http://codeliker.com/sitemap/index.html</loc>
     
     <lastmod>2016-10-10T00:05:09.783Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://codeliker.com/sitemap/index.html</loc>
+    <loc>http://codeliker.com/tags/index.html</loc>
     
     <lastmod>2016-10-10T00:05:09.783Z</lastmod>
     
