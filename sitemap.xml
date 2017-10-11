@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://codeliker.com/demo/inveno/css/style.css</loc>
+    
+    <lastmod>2017-10-11T12:53:37.154Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://codeliker.com/demo/inveno/index.html</loc>
+    
+    <lastmod>2017-10-11T12:43:19.249Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://codeliker.com/demo/draw/index.html</loc>
     
     <lastmod>2017-10-11T02:30:55.425Z</lastmod>
@@ -79,14 +93,14 @@
   </url>
   
   <url>
-    <loc>http://codeliker.com/sitemap/index.html</loc>
+    <loc>http://codeliker.com/tags/index.html</loc>
     
     <lastmod>2016-10-10T00:05:09.783Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://codeliker.com/tags/index.html</loc>
+    <loc>http://codeliker.com/sitemap/index.html</loc>
     
     <lastmod>2016-10-10T00:05:09.783Z</lastmod>
     
